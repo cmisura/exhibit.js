@@ -1,0 +1,19 @@
+/* 
+Because you can't have empty variables in Stylus, you need to do this : 
+
+## array = ''
+
+and when adding values to an array 
+
+## push( array, 1 2 3 4 )
+
+then
+
+## unquote( join( ' ', array ) )
+
+to get 
+
+## ==> 1 2 3 4
+
+
+*/

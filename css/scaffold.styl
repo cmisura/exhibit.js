@@ -1,0 +1,155 @@
+//###############################################################
+// DEFAULTS 								  	   	   			   ##
+//###############################################################
+
+@import variables
+@import functions
+@import mixins
+@import 'reset.css'
+@import atoms
+@import molecules
+@import organisms
+@import grid
+
+body-gutters          	= 32 
+font-color-primary    	= #000000
+font-family-primary   	= 'BTP Regular', sans-serif
+
+site-color-primary 	 	= rgb( 242, 241, 238 )
+
+// @import extend-utl-bootstrap
+
+//###############################################################
+// EXHIBIT									  	   			   ##
+//###############################################################
+
+body
+html  
+	padding 			0 
+	margin 				0
+	overflow 			hidden
+
+// FOR DEMO
+.exhibit-chapter
+	color 				white
+	font-size 			196px
+	background-color 	lightgrey  
+
+	
+.exhibit-chapter article
+	px-rem( padding, 40 400 )
+
+// END FOR DEMO
+
+.overflow-hidden
+	overflow 			hidden !important
+
+.overflow-auto
+	overflow-y 			auto 
+	
+.exhibit-container
+	bottom 				0 		
+	height  			100%
+	left 		 		0 
+	position 			fixed
+	overflow 			hidden  	 
+	right 				0
+	top 				0 
+	width 				100%
+
+.exhibit-chapters
+	display 			block
+	font-size 			0
+	height  			100% 
+	position 			relative
+	min-width 			100%
+
+.exhibit-chapter
+	display 			inline-block
+	height 				100%
+	vertical-align 		top
+
+.exhibit-chapter.state-prev
+.exhibit-chapter.state-next 
+	overflow-y 			hidden
+
+.exhibit-chapter.state-active
+	overflow-y 			auto 
+ 
+.exhibit-chapters.menu-open .exhibit-chapter
+	cursor 				pointer 
+	
+.exhibit-chapters-menu 
+	bottom 				0 
+	position 			absolute
+	min-width 			100%
+
+.exhibit-chapters-menu a 
+	px-rem( margin, 20 40 )
+
+@media device-width-phone-both 
+	
+	.site-child
+	.row
+		px-rem( max-width, 767 - body-gutters )
+
+	column-width( phone, 12 )
+	column-offset( phone, 12, true )
+	column-offset( phone, 12, false )
+
+	make-visible( show-for, false, tablet laptop desktop )
+	make-visible( hide-for, true, phone )
+
+// @media device-width-phone-portrait 
+// @media device-width-phone-landscape
+
+@media device-width-tablet-both 
+
+	.site-child
+	.row
+		px-rem( max-width, 736 + body-gutters )
+
+
+	column-width( tablet, 12 )
+	column-offset( tablet, 12, true )
+	column-offset( tablet, 12, false )
+
+	make-visible( show-for, false, phone laptop desktop )
+	make-visible( hide-for, true,  tablet )
+
+// @media device-width-tablet-portrait 
+// @media device-width-tablet-landscape
+
+@media device-width-laptop
+
+	.site-child
+	.row
+		px-rem( max-width, 992 + body-gutters )
+
+	.col-content
+		px-rem( padding, 0 16 )	
+	
+
+	column-width( laptop, 12 )
+	column-offset( laptop, 12, true )
+	column-offset( laptop, 12, false )
+
+	make-visible( show-for, false, phone tablet desktop)
+	make-visible( hide-for, true, laptop )
+
+@media device-width-desktop
+
+	.site-child
+	.row
+		px-rem( max-width, 1600 + body-gutters )
+
+	.col-content
+		px-rem( padding, 0 16 )
+
+	column-width( desktop, 12 )
+	column-offset( desktop, 12, true )
+	column-offset( desktop, 12, false )
+
+	make-visible( show-for, false, phone tablet laptop )
+	make-visible( hide-for, true,  desktop )
+	

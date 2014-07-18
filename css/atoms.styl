@@ -1,0 +1,257 @@
+//###############################################################
+// ATOMS                                                       ##
+//###############################################################
+
+// TEXT, TEXT SEMANTICS
+
+h1
+h2
+h3
+h4
+h5
+h6
+    font-weight         normal 
+    line-height         1.45
+    margin              0
+
+h1
+    type( font-size-base, 4, font-size-scale )
+h2
+    type( font-size-base, 3, font-size-scale )
+h3
+    type( font-size-base, 2, font-size-scale )
+h4
+    type( font-size-base, 1, font-size-scale )
+
+h5
+h6
+p
+pre
+ol
+ul
+dl
+blockquote
+figure
+figcaption
+    font-size           font-size-base
+
+a
+a:hover
+a:visited
+    text-decoration     none
+
+b
+    font-weight         inherit 
+
+em
+i
+.italic 
+    font-style          italic 
+
+
+strong
+    font-weight         font-weight-bold
+
+p
+    margin             0      
+
+ol
+ul
+    list-style-type     none
+    margin              0
+    padding             0
+
+img
+object
+embed
+    max-width           100%
+    height              auto
+
+object
+embed
+    height              100%
+
+img
+    -ms-interpolation-mode bicubic
+
+// TABULAR DATA
+
+table
+    border-collapse     collapse 
+    border-spacing      0
+    border              1px solid site-color-primary
+    width               100%
+
+td
+    border              1px solid site-color-primary
+    px-rem( padding, 16 )
+
+// CLEARFIX
+
+.clear-fix
+    *zoom               1
+
+.clear-fix:before
+.clear-fix:after
+    content             ' '
+    display             table
+
+.clear-fix:after 
+    clear               both
+
+// TRUNCATE
+
+.truncate
+    overflow              hidden
+    prefix( text-overflow,  ellipsis )
+    width                 100%
+    white-space           nowrap
+
+// HORIZONTAL CENTER
+
+.horz-center
+    float               none !important
+    margin-left         auto !important
+    margin-right        auto !important
+
+// VERTICAL CENTER 
+
+.vert-center-parent
+    display                             table
+    height                              100% /* Set in JS */
+    overflow                            hidden
+    width                               100% /* Set in JS */
+
+.vert-center-child
+    display                             table-cell
+    vertical-align                      middle
+    width                               100%
+    margin                              0 auto
+
+// BUTTONS
+
+.button
+    display             inline-block
+
+.button.model-natural
+    background-color    site-color-primary
+    color               font-color-secondary
+    px-rem( padding, 6 20 8 20 )
+
+// Set explict height and line-height for .button.model-fixed
+.button.model-fixed
+    background-color    site-color-primary
+    color               font-color-secondary
+    line-height         100%
+    text-align          center
+    px-rem( padding, 0 20 )
+
+.button.model-underline span 
+    color               font-color-secondary
+    border-color        @color 
+    border-style        solid 
+    px-rem( border-bottom-width, 3 )
+
+ .button.model-underline:hover span 
+    border-color        transparent 
+
+.button.model-text
+    box-shadow( 0 3px 0 site-color-primary )
+
+.model-natural:hover
+    background-color    lighten( site-color-primary, 25% )
+
+.model-text:hover
+    box-shadow( 0 1px 0 transparent )
+
+.button.state-expanded 
+    text-align          center
+    width               100%
+
+.model-natural.state-disabled
+    background-color    site-color-disabled 
+    color               darken( @background-color, 25% ) 
+
+// FORMS
+
+fieldset
+    border              0
+    margin              0
+    padding             0
+
+label
+    display             block
+    px-rem( padding-bottom,  4 )
+
+input
+textarea
+select
+    font-family         inherit
+    font-size           inherit
+
+input.model-text
+input.model-search
+input.model-url
+input.model-email
+input.model-number
+textarea
+    -webkit-appearance  none
+
+input.model-text
+input.model-search
+input.model-url
+input.model-email
+input.model-number
+input.model-color
+input.model-range
+input.model-date
+input.model-month
+input.model-week
+input.model-datetime
+textarea
+    border              1px solid site-color-primary
+    width               100%
+    px-rem( padding,  4 )
+
+input.model-color 
+    padding             0 
+
+input:disabled
+textarea:disabled
+input.state-disabled
+textarea.state-disabled
+    border-color        site-color-disabled
+
+input.state-error
+textarea.state-error
+    border-color        site-color-error
+
+input.state-success
+textarea.state-success
+    border-color        site-color-success
+
+input.state-warning
+textarea.state-warning
+    border-color        site-color-warning
+
+input.model-checkbox
+input.model-radio
+    width               auto
+    px-rem( margin-right,  4 )
+
+.field-container
+    px-rem( margin-bottom, 16 )
+
+// TOUCH SPECIFIC
+
+html.no-touch .show-for-touch
+html.touch .hide-for-touch
+    display             none !important
+
+html.no-touch .hide-for-touch
+html.touch .show-for-touch
+    display             inherit !important
+
+
+
+

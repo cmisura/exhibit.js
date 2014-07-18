@@ -1,0 +1,150 @@
+//###############################################################
+// FUNCTIONS												   ##
+//###############################################################
+
+
+// TYPE SCALE
+type( base, order, scale )
+	
+	base-px 	= 16
+	base-rem    = base
+	size    	= 0
+
+	for num in ( 1..order )
+		base-rem *= scale
+
+	size-px	= base-rem * base-px
+	// Round to 3 decimal places
+	size-rem = round( base-rem * 1000 ) / 1000
+
+	font-size unit( size-px, px )
+	font-size unit( size-rem, rem )
+
+
+// PX -> REM CONVERSION
+
+/* 
+Because you can't have empty variables in Stylus, you need to do this : 
+
+## array = ''
+
+and when adding values to an array 
+
+## push( array, 1 2 3 4 )
+
+then
+
+## unquote( join( ' ', array ) )
+
+to get 
+
+## ==> 1 2 3 4
+
+
+*/
+px-rem( selector, value, base = 16 )
+
+	size-px  = unit( value, px ) 
+	size-rem = unit( ( value / base ), rem )
+
+	// # Check how many values are being passed to our function 
+	if length( value ) is 1
+		
+		add-property( selector, size-px )
+		add-property( selector, size-rem )
+
+	else 
+
+		values 	= value 
+		set-px 	= ' '
+		set-rem = ' '
+
+		for n in values 
+
+			unless n is a 'unit'
+
+				push( set-px, n )
+				push( set-rem, n )
+
+			if type-of( n ) is 'unit'
+
+				push( set-px, unit( n, px ) )
+				push( set-rem, unit( ( n / base ), rem )  )
+			
+		add-property( selector, unquote( join( ' ', set-px ) ) )
+		add-property( selector, unquote( join( ' ', set-rem ) ) )
+
+
+// GRID
+columns( column-sizes, column-amount )
+
+	for size, i in column-sizes
+
+		for num in ( 1..column-amount )
+		
+			.col-{size}-{num}
+				@extend $column
+
+column-width( size, count )
+
+	for num in ( 1..count )
+
+		.col-{size}-{num}
+			width unit( ( ( num / count ) * 100 ), '%' ) 
+
+column-offset( size, count, push )
+	
+	property = ''
+	type 	 = ''
+
+	if push 
+		type 	 = 'push'
+		property = 'margin-left'
+
+	else
+		type 	 = 'pull'
+		property = 'margin-right'
+
+	for num in ( 1..count )
+
+		.col-{size}-{type}-{num}
+			{property} unit( ( ( num / count ) * 100 ), '%' ) 
+	
+// VISIBILITY
+make-visible( prefix, hidden, resolutions )
+	
+	display-value = ''
+
+	if hidden
+		display-value = 'none !important' 
+	else 
+		display-value = 'inherit !important'
+
+	for resolution, i in resolutions
+
+		{prefix}-{resolution}
+			display  unquote( display-value )
+
+// COLOURS
+
+check-color( property, colour, percent )
+	
+	adjust = 25
+
+	if dark( colour )
+		add-property( property, lighten( colour, unit( percent , '%' ) ) )
+
+	else
+		add-property( property, darken( colour, unit( percent + adjust, '%' ) ) )
+
+// BROWSER PREFIXS
+
+prefix( property, arguments )
+
+	-webkit-{property} 	arguments
+	-moz-{property}		arguments
+	-ms-{property}		arguments
+	-o-{property}		arguments
+	{property}		 	arguments
+
+	

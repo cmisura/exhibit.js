@@ -1,0 +1,73 @@
+//###############################################################
+// ORANISMS                                                    ##
+//###############################################################
+
+html
+html *
+html *:before
+html *:after
+    box-sizing( border-box )
+
+html
+    color               font-color-primary
+    font-family         font-family-primary 
+    font-size           font-size-base
+    font-weight         font-weight-normal
+    position            relative
+    min-height          100%
+
+body
+    px-rem( margin, 0 0 value-footer-height )
+
+#site-root
+    min-height          100%
+    height              auto !important
+    height              100%
+    width               100%
+    px-rem( padding-top, value-header-height )
+
+#site-root.unless-fixed
+    padding-top         0
+
+#site-header
+    background site-color-debug if debug-mode 
+    px-rem( height, value-header-height )
+    width               100%
+
+#site-header.state-fixed
+    position            fixed
+    z-index             value-header-zindex   
+
+#site-header.state-relative
+    position            relative
+
+#site-header.state-absolute
+    position            absolute
+    z-index             value-header-zindex   
+
+#site-footer
+    background site-color-debug if debug-mode 
+    bottom              0
+    px-rem( height, value-footer-height )
+    position            absolute
+    left                0
+    width               100%
+
+.site-parent 
+    px-rem( padding, 50 0 )
+    px-rem( margin, 0 50 )
+
+.site-parent
+.site-child
+    height 100%     if debug-mode    
+    overflow hidden if debug-mode
+
+.site-child
+    overflow            hidden 
+    position            relative
+    margin-right        auto
+    margin-left         auto
+    padding-left        0
+    padding-right       0
+    width               auto !important
+

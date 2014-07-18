@@ -1,0 +1,9 @@
+###
+To copy this folder to another project use this terminal command
+###
+
+cp -r [source folder] [destination directory]/[foldername]/
+
+###
+Only vanilla css or js that can be used for any project should be included in this build. Anything else should ‘extend’ this framework.
+###

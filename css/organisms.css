@@ -1,0 +1,53 @@
+html {
+  color: font-color-primary;
+  font-family: font-family-primary;
+  font-size: font-size-base;
+  font-weight: font-weight-normal;
+  position: relative;
+  min-height: 100%;
+}
+#site-root {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  width: 100%;
+}
+#site-root.unless-fixed {
+  padding-top: 0;
+}
+#site-header {
+  background: site-color-debug;
+  width: 100%;
+}
+#site-header.state-fixed {
+  position: fixed;
+  z-index: value-header-zindex;
+}
+#site-header.state-relative {
+  position: relative;
+}
+#site-header.state-absolute {
+  position: absolute;
+  z-index: value-header-zindex;
+}
+#site-footer {
+  background: site-color-debug;
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.site-parent,
+.site-child {
+  height: 100%;
+  overflow: hidden;
+}
+.site-child {
+  overflow: hidden;
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+  width: auto !important;
+}

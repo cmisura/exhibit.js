@@ -1,0 +1,50 @@
+//###############################################################
+// MIXINS                                                      ##
+//###############################################################
+    
+box-sizing()
+    prefix( box-sizing, arguments )
+
+box-shadow()
+    prefix( box-shadow, arguments )
+
+border-radius()
+    prefix( border-radius, arguments )
+
+transition()
+    prefix( transition, arguments )
+ 
+transform()
+    prefix( transform, arguments )
+
+transform-origin()
+    prefix( transform-origin, arguments )
+
+hardware-acceleration()
+    prefix( transform, translate3d( 0, 0, 0.01 ) )  
+    prefix( backface-visibility, hidden )       
+    prefix( perspective, 1000 )       
+    
+// SCOPED MEDIA QUERIES 
+scope-media-query( queries... )
+
+    max = length( queries )
+    min = 1
+
+    for query in ( min..max )
+
+        if query % 2 == 1
+
+            threshold  = queries[(query - 1)]
+            selector   = queries[query]
+
+            @media threshold
+                {selector} 
+                    {block}
+
+
+              
+
+
+
+            

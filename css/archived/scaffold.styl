@@ -1,0 +1,99 @@
+//###############################################################
+// DEFAULTS 								  	   	   			   ##
+//###############################################################
+
+@import variables
+@import functions
+@import mixins
+@import import-fonts  
+@import 'normalize.css'
+@import atoms
+@import molecules
+@import organisms
+@import grid
+
+//###############################################################
+// EXTEND 								  	   	   			   ##
+//###############################################################
+
+@import extend-utl-bootstrap
+
+//###############################################################
+// DEVICE SPECIFIC										  	   ##
+//###############################################################
+
+.column-content
+	px-rem( padding, 8 )
+
+// # Everything above should target small / extra-small screens
+@media device-width-phone-both 
+
+	.site-parent 
+		px-rem( padding, 50 0 )
+		px-rem( margin, 0 50 )
+
+	.site-child
+	.row
+		px-rem( max-width, 960 )
+
+	make-visible( show-for, false, tablet laptop desktop )
+	make-visible( hide-for, true, phone )
+
+// @media device-width-phone-portrait 
+// @media device-width-phone-landscape
+
+@media device-width-tablet-both 
+
+	.site-parent 
+		px-rem( padding, 50 0 )
+		px-rem( margin, 0 50 )
+
+	.site-child
+	.row
+		px-rem( max-width, 960 )
+
+	column-width( tablet, 12 )
+	column-offset( tablet, 12, true )
+	column-offset( tablet, 12, false )
+
+	make-visible( show-for, false, phone laptop desktop )
+	make-visible( hide-for, true,  tablet )
+
+// @media device-width-tablet-portrait 
+// @media device-width-tablet-landscape
+
+@media device-width-laptop
+
+	.site-parent 
+		px-rem( padding, 50 0 )
+		px-rem( margin, 0 50 )
+
+	.site-child
+	.row
+		px-rem( max-width, 960 )	
+
+	column-width( laptop, 12 )
+
+	make-visible( show-for, false, phone tablet desktop)
+	make-visible( hide-for, true, laptop )
+
+@media device-width-desktop
+	
+	.site-parent 
+		px-rem( padding, 50 0 )
+		px-rem( margin, 0 50 )
+
+	.site-child
+	.row
+		px-rem( max-width, 1224 )
+
+	.column-content
+		px-rem( padding, 8 )
+
+	column-width( desktop, 12 )
+	column-offset( desktop, 12, true )
+	column-offset( desktop, 12, false )
+
+	make-visible( show-for, false, phone tablet laptop )
+	make-visible( hide-for, true,  desktop )
+	
